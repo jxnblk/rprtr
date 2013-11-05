@@ -4,9 +4,9 @@
 <div ng-show="loading" class="p2 border-bottom">Loading...</div>
 <div ng-show="parsing" class="p2 border-bottom">Parsing data...</div>
 
-<main ng-show="declarations && uniqueColors" class="block p2 responsive">
+<main class="block p2 responsive">
 
-  <div class="clearfix border-bottom mb2">
+  <div class="clearfix mb2">
     
     <div class="mb2 left half-width">
       <h1 class="h1">{{ declarations.length | number }}</h1>
@@ -33,6 +33,10 @@
       <p>Float declarations</p>
     </div>
 
+  </div>
+
+  <div class="clearfix">
+
     <div class="mb2 left half-width">
       <h1 class="h2">{{ colors.length | number }}</h1>
       <p>Colors ({{ uniqueColors.length }} unique)</p>
@@ -43,6 +47,10 @@
       <p>Background Colors ({{ uniqueBackgroundColors.length }} unique)</p>
     </div>
 
+  </div>
+
+  <div class="clearfix">
+
     <div class="mb2 left half-width">
       <h1 class="h2">{{ widths.length | number }}</h1>
       <p>Widths ({{ uniqueWidths.length }} unique)</p>
@@ -52,6 +60,10 @@
       <h1 class="h2">{{ heights.length | number }}</h1>
       <p>Heights ({{ uniqueHeights.length }} unique)</p>
     </div>
+
+  </div>
+
+  <div class="clearfix">
 
     <div class="mb2 left half-width">
       <h1 class="h2">{{ margins.length | number }}</h1>

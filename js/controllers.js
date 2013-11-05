@@ -35,8 +35,10 @@ rprtr.controller('ReportCtrl',
         // Wait for selectors to load, then get uniques
         if($scope.selectors) {
           createUniques($scope);
-          $scope.loading = false;
         };
+      });
+      $scope.$watch('uniqueBackgroundColors', function(){
+        $scope.loading = false;
       });
     };
 
