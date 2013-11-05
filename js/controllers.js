@@ -1,7 +1,7 @@
 // Controllers
 
 
-rprtr.controller('GlobalCtrl',
+rprtr.controller('ReportCtrl',
   ['$scope', '$http', '$location', 'declarations', 'declarationsByType', 'selectors', 'createUniques',
   function($scope, $http, $location, declarations, declarationsByType, selectors, createUniques) {
 
@@ -10,10 +10,6 @@ rprtr.controller('GlobalCtrl',
     // Kinda hacky way of doing the select
     $scope.sites = { 'value': 'github', 'values': ['github', 'kickstarter', 'mapbox', 'medium', 'myspace', 'twitter', 'salesforce', 'sfdc', 'newyorktimes', 'css', 'bbc', 'bootstrap', 'topcoat'] };
 
-    if($location.search()) {
-      $scope.styleData = $location.search().site;
-      $scope.sites.value = $scope.styleData;
-    }
     // Setting as a scope variable that can be updated in the view
     if($scope.styleData == null) {
       $scope.styleData = 'github';
@@ -63,7 +59,11 @@ rprtr.controller('GlobalCtrl',
 }]);
 
 
-rprtr.controller('HomeCtrl', ['$scope', '$filter', function($scope, $filter) {
+rprtr.controller('HomeCtrl', ['$scope', '$filter', '$routeParams', function($scope, $filter, $routeParams) {
+
+  $scope.stylesData = 'kickstarter';
+
+
   $scope.$watch('loading', function(){
     console.log('checking for warnings...');
     if($scope.uniqueDeclarations) $scope.refactoringPotential = parseInt((1 - ($scope.uniqueDeclarations.length / $scope.declarations.length)) * 100);
