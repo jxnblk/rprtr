@@ -5,7 +5,10 @@ rprtr.controller('ReportCtrl',
   ['$scope', '$http', '$location', '$routeParams', 'declarations', 'declarationsByType', 'selectors', 'createUniques',
   function($scope, $http, $location, $routeParams, declarations, declarationsByType, selectors, createUniques) {
 
-
+    if($routeParams) {
+      console.log($routeParams);
+      $scope.styleData = $routeParams.site;
+    };
     // Setting as a scope variable that can be updated in the view
     if($scope.styleData == null) {
       $location.path('/kickstarter');
@@ -49,6 +52,8 @@ rprtr.controller('ReportCtrl',
     };
 
 }]);
+
+rprtr.controller('SitesCtrl', ['$scope', function($scope){}]);
 
 
 rprtr.controller('ParserCtrl', ['$scope', '$http', '$filter', 'declarations', function($scope, $http, $filter, declarations){
